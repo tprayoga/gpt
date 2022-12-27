@@ -1,15 +1,20 @@
-FROM node:16-alpine
+FROM node:14-alpine
 
 # Install curl
 RUN apk add --no-cache curl
 
 # Create app directory
-WORKDIR usr/app/app
+WORKDIR /usr/src/app
 
-COPY ["package.json", "package-lock.json*", "./"]
+# Copy package files
+COPY package*.json ./
 
+# Install dependencies
 RUN npm install
 
+# Copy app files
 COPY . .
 
-CMD [ "npm", "start" ]      
+# Expose port and start app
+EXPOSE 3000
+CMD ["npm", "start"]
