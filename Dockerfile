@@ -6,7 +6,7 @@ RUN apk add --no-cache curl
 # Create app directory
 WORKDIR usr/app/app
 
-COPY ["package.json", "package-lock.json*", "/"]
+COPY ["package.json", "package-lock.json*", "./"]
 
 RUN npm install
 
