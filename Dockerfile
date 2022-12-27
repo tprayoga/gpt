@@ -4,7 +4,7 @@ FROM node:16-alpine
 RUN apk add --no-cache curl
 
 # Create app directory
-WORKDIR /server
+WORKDIR usr/app/app
 
 COPY ["package.json", "package-lock.json*", "/"]
 
@@ -12,4 +12,4 @@ RUN npm install
 
 COPY . .
 
-CMD [ "npm", "start" ]
+CMD [ "npm", "start" ]      
